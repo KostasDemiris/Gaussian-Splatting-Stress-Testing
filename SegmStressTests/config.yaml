@@ -1,0 +1,35 @@
+# Controls the default values for the segmentation mask stress tests.
+# These are the values used in our evaluation, given to allow the results to be recreated (given a fixed random seed!!!),
+# so if you want to apply this to your own project, please adjust the values accordingly.
+
+# There are only two parameters that really impact each individual operation -- Kernel Size and Iteration Count
+erosion:
+  kernel_size: 5
+  iters_count: 1
+  # This should be called iter count, but the difference in line length annoys me. Feel free to change...
+
+dilation:
+  kernel_size: 5
+  iters_count: 1
+
+opening:
+  kernel_size: 5
+  iters_count: 1
+
+closing:
+  kernel_size: 5
+  iters_count: 1
+
+random_operations:
+  kernel_size_range: [3, 7]
+  iters_count_range: [1, 3]
+  oper_number_range: [1, 3]
+
+top_hat_transform:
+  kernel_size: 5
+
+box_corruption:
+  likelihood: 1.0
+  params:
+    box_number: [1, 3]
+    box_dimens: [10, 50]

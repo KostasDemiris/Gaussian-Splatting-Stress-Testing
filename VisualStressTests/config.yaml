@@ -1,0 +1,105 @@
+# Configuration for Visual Stress Test Transformations
+# Reference [1]: Synthetic data accelerates development of generalizable learning-based algorithms
+
+# REGULAR STRENGTH TRANSFORMATIONS
+
+gaussian_noise:
+  likelihood: 1.0
+  params:
+    mean: 0.0
+    sigma_range: [0.005, 0.1]
+
+gamma:
+  likelihood: 1.0
+  params:
+    random_gamma: [0.5, 2.0]
+
+crop:
+  likelihood: 0.0
+  params:
+    crop_size: [0.85, 0.99]
+
+# HIGH STRENGTH TRANSFORMATIONS
+
+
+inversion:
+  likelihood: 0.0
+  params: null
+
+affine:
+  likelihood: 1.0
+  params:
+    rot_chance: 0.5
+    theta: [-30, 30]
+    scale_chance: 0.5
+    scale_factor: [0.8, 1.2]
+    shear_chance: 0.3
+    shear_factor: [-0.2, 0.2]
+
+gaussian_blur:
+  likelihood: 1.0
+  params:
+    kernel_size: 5
+    sigma: 1.0
+
+box_corruption:
+  likelihood: 1.0
+  params:
+    box_number: [1, 3]
+    box_dimens: [10, 50]
+    corruption: [-25, 25]
+
+dropout:
+  likelihood: 0.0
+  params:
+    percentage: [1, 10]
+
+
+sharpening_and_embossing:
+  likelihood: 0.0
+  params: {}
+
+pooling_method:
+  likelihood: 0.0
+  params: {}
+
+distortion_transform:
+  likelihood: 0.0
+  params: {}
+
+
+# Localised Gaussian Blur for fat
+
+local_gaussian_blur:
+  likelihood: 1.0
+  params: 
+    number: [1,3]
+    patch_size: [40, 80]
+    kernel_size: 15
+    sigma: [3.0, 6.5]
+
+# SMOKE parameters
+
+perlin_smoke:
+  seed: 
+  lin_mixer: 0.8
+  magnitude: 150
+  scale: [80, 120]
+  temporal_scale: [70, 80]
+  octave: [5, 7]
+
+# Blood Mask Rendering Parameters
+
+# Yeah these are somewhat random for now, look at the literature on exactly what they are...
+blinn_phong_rendering:
+  light: [250, 250, 250]
+  camera:
+    focal_length: 856 # ft. Iris's parameter
+    baseline : 0.0055 # Literally cannot find what version they're using, so I'm taking the DaVinci Xi's endoscopic baseline
+  material: 
+    specular_coefficient: [0.9, 0.9, 0.9]
+    diffuse_coefficient: [0.55, 0.15, 0.15]
+    ambient_coefficient: [0.01, 0.01, 0.01]
+    specular_exponent: 40
+  threshold: 0.1
+  

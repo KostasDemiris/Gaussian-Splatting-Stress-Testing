@@ -1,0 +1,13 @@
+
+quantisation:
+  likelihood: 1.0
+  params:
+    target_bands: 16
+
+gaussian_noise:
+  likelihood: 1.0
+  params:
+    mean: 0
+    sigma: 1
+    depth_var: 0.1
+

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "StressTesting"
+version = "0.1.0"
+dependencies = [
+    "pyyaml",
+]
+
+[tool.setuptools]
+packages = ["Utility", "SegmStressTests", "DepthStressTests", "VisualStressTests"]
+py-modules = ["loading"]
