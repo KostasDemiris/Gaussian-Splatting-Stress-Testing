@@ -1,2 +1,7 @@
 **/__pycache__/
+
 StressTesting.egg-info
+
+.venv/
+venv/
+env/
